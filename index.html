@@ -1,83 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nosso Amor 💖</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Meu Amor</title>
+  <link rel="stylesheet" href="entrada.css">
 </head>
-
 <body>
-    <canvas id="coracoes"></canvas>
+  
+  <canvas id="coracoes"></canvas>
+  <div class="container">
+    <h1>🌙 OII MEU AMOOOR 💖</h1>
+    <p>Clique nesse botão para ver algo para ver algo especial!</p>
+    <a href="amorzinho.html" class="botao" onclick="localStorage.setItem('tocarMusica', 'sim')">Entrar no nosso cantinho</a>
 
-    <header>
-        <h1>Eu e Meu Amor</h1>
+  </div>
 
-    </header>
-
-
-    <main>
-        <section id="inicio">
-            <h2>Nosso Início</h2><br>
-            <p>MEEEEEU AMOOOR, caso tu não saiba, nos "conhecemos", ou melhor dizendo, começamos nossa história no dia:
-                <br>
-                <strong>04/07/2024</strong>, 💫
-            </p>
-            <br>
-            <p>E em pouco tempo, eu me apaixonei por você e criei um sentimento jamais visto. Decidi que queria passar o
-                resto da minha vida com quem amo, e começamos a namorar dia:
-                <br>
-                <strong>13/10/2024</strong> 💍
-            </p>
-            <br><br>
-
-            <p><strong>ISSO EM DIAS SÃO:</strong></p>
-            <br>
-
-
-            <div id="contadorConhecer"></div>
-            <div id="contadorNamoro"></div>
-        </section>
-
-        <section id="galeria">
-            
-            <div class="slider">
-                <div class="slider-inner">
-                    <img src="fotos/ft2.jpg" alt="Foto 1">
-                    <img src="fotos/ft3.jpg" alt="Foto 2">
-                    <img src="fotos/ft4.jpg" alt="Foto 3">
-                    <img src="fotos/ft5.jpg" alt="Foto 4">
-                    <img src="fotos/ft6.jpg" alt="Foto 5">
-                </div>
-            </div>
-        </section>
-
-        <section id="carta">
-            <h2>Carta Para Você</h2>
-            <div class="envelope" onclick="abrirCarta()">
-                <div class="tampa"></div>
-                <div class="conteudo">
-                    <p>
-                        Você é o meu melhor presente. Obrigado por estar na minha vida.
-                        Eu te amo com todo meu coração! 💖
-                    </p>
-                </div>
-                <div class="frente"></div>
-            </div>
-        </section>
-
-
-        <section id="musica">
-            <audio controls autoplay loop>
-                <source src="musica/Yago Oproprio - Papoulas  (prod. Patrício Sid) (Visualizer).mp3" type="audio/mp3" />
-                Seu navegador não suporta o áudio.
-            </audio>
-            <button id="teAmoBtn">Te Amo ❤️</button>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+  <script src="coracoes.js"></script>
 </body>
-
 </html>
