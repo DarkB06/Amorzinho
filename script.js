@@ -6,10 +6,17 @@ function calcularDias(data) {
     return Math.floor(diffTime / (1000 * 60 * 60 * 24));
 }
 
-function calcularTempoDecorrido(data) {
+function calcularTempoDecorrido(data, limite = null) {
     const agora = new Date();
     const inicio = new Date(data);
-    let diffMs = agora - inicio;
+    let fim = agora;
+
+    // Se tiver limite e o agora passou dele, congela no limite
+    if (limite && agora > limite) {
+        fim = limite;
+    }
+
+    let diffMs = fim - inicio;
 
     const dias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
     diffMs -= dias * (1000 * 60 * 60 * 24);
@@ -34,20 +41,22 @@ function atualizarContadores() {
     const contadorConhecer = document.getElementById("contadorConhecer");
     const contadorNamoro = document.getElementById("contadorNamoro");
 
-
     const tempoConhecer = calcularTempoDecorrido("2024-07-04");
-    const tempoNamoro = calcularTempoDecorrido("2024-10-13");
+
+    // Limite para congelar no dia 21/08/2025
+    const limiteNamoro = new Date("2025-08-21T23:59:59");
+    const tempoNamoro = calcularTempoDecorrido("2024-10-13", limiteNamoro);
 
     contadorConhecer.innerHTML = `💫  <strong>${formatarTempo(tempoConhecer)}</strong> desde que nos conhecemos!`;
     contadorNamoro.innerHTML = `💖 Estamos namorando há <strong>${formatarTempo(tempoNamoro)}</strong>!`;
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     atualizarContadores();
     setInterval(atualizarContadores, 1000);
+    document.querySelector(".envelope").addEventListener("click", abrirCarta);
+    document.querySelector("#teAmoBtn").addEventListener("click", abrirCarta);
 });
-
 
 const audio = new Audio("musica/Papoulas.mp3");
 audio.loop = true;
@@ -57,6 +66,7 @@ function abrirCarta() {
     envelope.classList.toggle("aberto");
     audio.play();
 }
+
 //--------------------------------------------/// Carrossel de imagens
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".carousel-track");
